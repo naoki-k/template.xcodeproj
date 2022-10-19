@@ -1,0 +1,51 @@
+name: template
+include: [XcodeGen/develop.yml, XcodeGen/staging.yml, XcodeGen/release.yml, XcodeGen/dependencies.yml]
+configs:
+  Develop: debug
+  Release: release
+  Staging: debug
+options:
+  developmentLanguage: jp
+  generateEmptyDirectories: true
+  defaultConfig: Staging
+  groupSortPosition: top
+  transitivelyLinkDependencies: false
+  deploymentTarget: [iOS]
+  groupOrdering:
+    - pattern: 'App'
+      order: [Model, View, Controller, Extension, Assets]
+targets:
+  App:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: App
+    requiresObjCLinking: true
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: $(BUNDLE_DISPLAY_NAME)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        LSRequiresIPhoneOS: YES
+        UILaunchScreen: ""
+        UIApplicationSupportsIndirectInputEvents: YES
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+                UISceneStoryboardFile: Main
+        UISupportedInterfaceOrientations~iphone:
+          [UIInterfaceOrientationPortrait]
+        UIMainStoryboardFile: Main
+settings:
+  base:
+    DEVELOPMENT_TEAM: L2RH72N29F
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: "0.0.1"
+    SWIFT_VERSION: '5.0'
+    IPHONEOS_DEPLOYMENT_TARGET: '13.0'
+    SDKROOT: iphoneos
+    TARGETED_DEVICE_FAMILY: 1

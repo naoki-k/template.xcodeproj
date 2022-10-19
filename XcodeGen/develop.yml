@@ -1,0 +1,34 @@
+schemes:
+  develop:
+    analyze:
+      config: Develop
+    archive:
+      config: Develop
+    build:
+      targets:
+        App:
+        - running
+        - testing
+        - profiling
+        - analyzing
+        - archiving
+    profile:
+      config: Develop
+    run:
+      config: Develop
+    test:
+      config: Develop
+targets:
+  App:
+    settings:
+      configs:
+        Develop:
+          CODE_SIGN_IDENTITY: Apple Development
+          CODE_SIGN_STYLE: Automatic
+          PROVISIONING_PROFILE_SPECIFIER: ''
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          OTHER_SWIFT_FLAGS: -D DEVELOP
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEVELOP
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
+          PRODUCT_BUNDLE_IDENTIFIER: com.n-kakuta.template.dev
+          PRODUCT_NAME: template.dev

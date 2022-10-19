@@ -1,0 +1,35 @@
+schemes:
+  release:
+    analyze:
+      config: Release
+    archive:
+      config: Release
+    build:
+      targets:
+        App:
+        - running
+        - testing
+        - profiling
+        - analyzing
+        - archiving
+    profile:
+      config: Release
+    run:
+      config: Release
+    test:
+      config: Staging
+targets:
+  App:
+    settings:
+      configs:
+        Release:
+          CODE_SIGN_IDENTITY: Apple Distribution
+          CODE_SIGN_STYLE: Manual
+          PROVISIONING_PROFILE_SPECIFIER: ''
+          PRODUCT_BUNDLE_IDENTIFIER: com.n-kakuta.template
+          PRODUCT_NAME: template
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          SWIFT_COMPILATION_MODE: wholemodule
+          SWIFT_OPTIMIZATION_LEVEL: -O
+
+

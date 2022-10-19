@@ -1,0 +1,34 @@
+schemes:
+  staging:
+    analyze:
+      config: Staging
+    archive:
+      config: Staging
+    build:
+      targets:
+        App:
+        - running
+        - testing
+        - profiling
+        - analyzing
+        - archiving
+    profile:
+      config: Staging
+    run:
+      config: Staging
+    test:
+      config: Staging
+targets:
+  App:
+    settings:
+      configs:
+        Staging:
+          CODE_SIGN_IDENTITY: Apple Development
+          CODE_SIGN_STYLE: Automatic
+          PRODUCT_BUNDLE_IDENTIFIER: com.n-kakuta.template.stg
+          PRODUCT_NAME: template.stg
+          PROVISIONING_PROFILE_SPECIFIER: ''
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+          OTHER_SWIFT_FLAGS: -D DEVELOP
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: Staging
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
